@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--WIP use index.js on console, go to terminal and type in "node ." love you ~ Fearon <3 -->
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>text to speech</title>
+  </head>
+  <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <input type="text" name="text"> 
+
+    <a href="#" class="say">Say It!</a>
+    <audio src=""hidden class="speech"></audio>
+
+    <script>
+        $(function(){
+            $('a.say').on('click',function(e){
+                e.preventDefault();
+                let text= $('input[name="text"]').val();
+                text = encodeURIComponent(text);
+                console.log(text);
+                let url="https://translate.google.com/translate_tts?ie=UTF-8&q="+ text +"&tl=en"
+                $('audio').attr('src',url).get(0).play();
+            })
+        });
+    </script>
+  </body>
+</html>
